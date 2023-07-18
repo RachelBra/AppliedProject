@@ -11,6 +11,8 @@ def save_cifar10_as_numpy_dict(data_dir, output_file):
             train_data.append(data[b'data'])
             train_labels.extend(data[b'labels'])
 
+
+    print("images", len(train_data))
     train_data = np.vstack(train_data)
     train_labels = np.array(train_labels)
     cifar_dict = {'images': train_data, 'labels': train_labels}
@@ -19,7 +21,7 @@ def save_cifar10_as_numpy_dict(data_dir, output_file):
 
 
 path = os.getcwd()+r'\\data\\cifr10\\cifar-10-batches-py'  #your path
-output_file = os.getcwd() + r'\\data\\cifr10\\'
+output_file = os.getcwd() + r'\\data\\cifr10'
 save_cifar10_as_numpy_dict(path, output_file)
 
 
