@@ -8,12 +8,13 @@ def read_from_numpy_dict(file_path):
     labels = cifar_data['labels']
     return images, labels
 
+
 def show_images_with_labels(images, labels, figsize=(500, 500), fontsize=10):
     num_images = len(images)
     fig, axs = plt.subplots(1, num_images, figsize=figsize)
 
     for i in range(num_images):
-        image = images[i]
+        image = images[i].reshape(32, 32, 3)
         label = labels[i]
 
         axs[i].imshow(image)
@@ -27,5 +28,10 @@ file_path = os.path.join(os.getcwd(), 'data', 'cifr10.npz')
 images, labels = read_from_numpy_dict(file_path)
 print("images:", len(images))
 print("labels:", len(labels))
-show_images_with_labels(images, labels, figsize=(500, 550), fontsize=5)
+
+# Select the first 20 items
+images = images[:20]
+labels = labels[:20]
+
+show_images_with_labels(images, labels)
 

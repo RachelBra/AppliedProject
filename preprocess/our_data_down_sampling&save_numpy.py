@@ -36,10 +36,13 @@ labels = create_labels(num_classes, num_samples)
 images = create_images(folder_load_path)
 
 print("labels", len(labels))
-print("images", images)
+
 
 labels_data = np.array(labels)
 images_data = np.array(images)
+print("images", images_data.shape)
+
+
 
 our_data_dict = {'images': images_data, 'labels': labels_data}
 np.savez(folder_save_path, **our_data_dict)
